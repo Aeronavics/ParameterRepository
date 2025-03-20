@@ -148,9 +148,9 @@
       <param humanName="Throttle Failsafe Enable" name="ArduCopter:FS_THR_ENABLE" documentation="The throttle failsafe allows you to configure a software failsafe activated by a setting on the throttle input channel" user="Standard">
         <values>
           <value code="0">Disabled</value>
-          <value code="1">Enabled always RTL</value>
-          <value code="2">Enabled Continue with Mission in Auto Mode (Removed in 4.0+)</value>
-          <value code="3">Enabled always Land</value>
+          <value code="1">RTL</value>
+          <value code="2">Continue with Mission in Auto Mode (Removed in 4.0+)</value>
+          <value code="3">Land</value>
           <value code="4">Enabled always SmartRTL or RTL</value>
           <value code="5">Enabled always SmartRTL or Land</value>
           <value code="6">Enabled Auto DO_LAND_START or RTL</value>
@@ -10962,11 +10962,68 @@
           <value code="1">IE 650w 800w Fuel Cell</value>
           <value code="2">IE 2.4kW Fuel Cell</value>
           <value code="3">Richenpower</value>
+          <value code="4">GX-7</value>
         </values>
         <field name="RebootRequired">True</field>
       </param>
       <param humanName="Generator Options" name="GEN_OPTIONS" documentation="Bitmask of options for generators" user="Standard">
         <field name="Bitmask">0:Suppress Maintenance-Required Warnings</field>
+      </param>
+      <param humanName="Generator low fuel level" name="GEN_LOW_PER" documentation="Fuel level to low failsafe at" user="Advanced">
+        <field name="Range">0 100</field>
+        <field name="Increment">1</field>
+        <field name="Units">%</field>
+        <field name="UnitText">Percent</field>
+      </param>
+      <param humanName="Generator critical fuel level" name="GEN_CRIT_PER" documentation="Fuel level to Critical failsafe at" user="Advanced">
+        <field name="Range">0 100</field>
+        <field name="Increment">1</field>
+        <field name="Units">%</field>
+        <field name="UnitText">Percent</field>
+      </param>
+      <param humanName="Generator low fuel action" name="GEN_LOW_FS" documentation="Action to take when low fuel level is reached" user="Advanced">
+        <values>
+          <value code="0">None</value>
+          <value code="1">Land</value>
+          <value code="2">RTL</value>
+          <value code="3">SmartRTL or RTL</value>
+          <value code="4">SmartRTL or Land</value>
+          <value code="5">Terminate</value>
+          <value code="6">Auto DO_LAND_START or RTL</value>
+        </values>
+      </param>
+      <param humanName="Generator crit fuel action" name="GEN_CRIT_FS" documentation="Action to take when crit fuel level is reached" user="Advanced">
+        <values>
+          <value code="0">None</value>
+          <value code="1">Land</value>
+          <value code="2">RTL</value>
+          <value code="3">SmartRTL or RTL</value>
+          <value code="4">SmartRTL or Land</value>
+          <value code="5">Terminate</value>
+          <value code="6">Auto DO_LAND_START or RTL</value>
+        </values>
+      </param>
+      <param humanName="Generator stopped action" name="GEN_OFF_FS" documentation="Action to take when generator stops" user="Advanced">
+        <values>
+          <value code="0">None</value>
+          <value code="1">Land</value>
+          <value code="2">RTL</value>
+          <value code="3">SmartRTL or RTL</value>
+          <value code="4">SmartRTL or Land</value>
+          <value code="5">Terminate</value>
+          <value code="6">Auto DO_LAND_START or RTL</value>
+        </values>
+      </param>
+      <param humanName="Generator error action" name="GEN_ERROR_FS" documentation="Action to take when generator has an error" user="Advanced">
+        <values>
+          <value code="0">None</value>
+          <value code="1">Land</value>
+          <value code="2">RTL</value>
+          <value code="3">SmartRTL or RTL</value>
+          <value code="4">SmartRTL or Land</value>
+          <value code="5">Terminate</value>
+          <value code="6">Auto DO_LAND_START or RTL</value>
+        </values>
       </param>
     </parameters>
     <parameters name="GPS">
@@ -18751,6 +18808,9 @@
           <value code="60">ZigZag Mode</value>
           <value code="61">ZigZag SaveWP</value>
           <value code="109">use Custom Controller</value>
+          <value code="310">Spot Sprayer Enable</value>
+          <value code="311">Spot Sprayer Option</value>
+          <value code="312">Spot Sprayer Pulse</value>
         </values>
       </param>
     </parameters>
@@ -18901,6 +18961,9 @@
           <value code="60">ZigZag Mode</value>
           <value code="61">ZigZag SaveWP</value>
           <value code="109">use Custom Controller</value>
+          <value code="310">Spot Sprayer Enable</value>
+          <value code="311">Spot Sprayer Option</value>
+          <value code="312">Spot Sprayer Pulse</value>
         </values>
       </param>
     </parameters>
@@ -19051,6 +19114,9 @@
           <value code="60">ZigZag Mode</value>
           <value code="61">ZigZag SaveWP</value>
           <value code="109">use Custom Controller</value>
+          <value code="310">Spot Sprayer Enable</value>
+          <value code="311">Spot Sprayer Option</value>
+          <value code="312">Spot Sprayer Pulse</value>
         </values>
       </param>
     </parameters>
@@ -19201,6 +19267,9 @@
           <value code="60">ZigZag Mode</value>
           <value code="61">ZigZag SaveWP</value>
           <value code="109">use Custom Controller</value>
+          <value code="310">Spot Sprayer Enable</value>
+          <value code="311">Spot Sprayer Option</value>
+          <value code="312">Spot Sprayer Pulse</value>
         </values>
       </param>
     </parameters>
@@ -19351,6 +19420,9 @@
           <value code="60">ZigZag Mode</value>
           <value code="61">ZigZag SaveWP</value>
           <value code="109">use Custom Controller</value>
+          <value code="310">Spot Sprayer Enable</value>
+          <value code="311">Spot Sprayer Option</value>
+          <value code="312">Spot Sprayer Pulse</value>
         </values>
       </param>
     </parameters>
@@ -19501,6 +19573,9 @@
           <value code="60">ZigZag Mode</value>
           <value code="61">ZigZag SaveWP</value>
           <value code="109">use Custom Controller</value>
+          <value code="310">Spot Sprayer Enable</value>
+          <value code="311">Spot Sprayer Option</value>
+          <value code="312">Spot Sprayer Pulse</value>
         </values>
       </param>
     </parameters>
@@ -19651,6 +19726,9 @@
           <value code="60">ZigZag Mode</value>
           <value code="61">ZigZag SaveWP</value>
           <value code="109">use Custom Controller</value>
+          <value code="310">Spot Sprayer Enable</value>
+          <value code="311">Spot Sprayer Option</value>
+          <value code="312">Spot Sprayer Pulse</value>
         </values>
       </param>
     </parameters>
@@ -19801,6 +19879,9 @@
           <value code="60">ZigZag Mode</value>
           <value code="61">ZigZag SaveWP</value>
           <value code="109">use Custom Controller</value>
+          <value code="310">Spot Sprayer Enable</value>
+          <value code="311">Spot Sprayer Option</value>
+          <value code="312">Spot Sprayer Pulse</value>
         </values>
       </param>
     </parameters>
@@ -19951,6 +20032,9 @@
           <value code="60">ZigZag Mode</value>
           <value code="61">ZigZag SaveWP</value>
           <value code="109">use Custom Controller</value>
+          <value code="310">Spot Sprayer Enable</value>
+          <value code="311">Spot Sprayer Option</value>
+          <value code="312">Spot Sprayer Pulse</value>
         </values>
       </param>
     </parameters>
@@ -20101,6 +20185,9 @@
           <value code="60">ZigZag Mode</value>
           <value code="61">ZigZag SaveWP</value>
           <value code="109">use Custom Controller</value>
+          <value code="310">Spot Sprayer Enable</value>
+          <value code="311">Spot Sprayer Option</value>
+          <value code="312">Spot Sprayer Pulse</value>
         </values>
       </param>
     </parameters>
@@ -20251,6 +20338,9 @@
           <value code="60">ZigZag Mode</value>
           <value code="61">ZigZag SaveWP</value>
           <value code="109">use Custom Controller</value>
+          <value code="310">Spot Sprayer Enable</value>
+          <value code="311">Spot Sprayer Option</value>
+          <value code="312">Spot Sprayer Pulse</value>
         </values>
       </param>
     </parameters>
@@ -20401,6 +20491,9 @@
           <value code="60">ZigZag Mode</value>
           <value code="61">ZigZag SaveWP</value>
           <value code="109">use Custom Controller</value>
+          <value code="310">Spot Sprayer Enable</value>
+          <value code="311">Spot Sprayer Option</value>
+          <value code="312">Spot Sprayer Pulse</value>
         </values>
       </param>
     </parameters>
@@ -20551,6 +20644,9 @@
           <value code="60">ZigZag Mode</value>
           <value code="61">ZigZag SaveWP</value>
           <value code="109">use Custom Controller</value>
+          <value code="310">Spot Sprayer Enable</value>
+          <value code="311">Spot Sprayer Option</value>
+          <value code="312">Spot Sprayer Pulse</value>
         </values>
       </param>
     </parameters>
@@ -20701,6 +20797,9 @@
           <value code="60">ZigZag Mode</value>
           <value code="61">ZigZag SaveWP</value>
           <value code="109">use Custom Controller</value>
+          <value code="310">Spot Sprayer Enable</value>
+          <value code="311">Spot Sprayer Option</value>
+          <value code="312">Spot Sprayer Pulse</value>
         </values>
       </param>
     </parameters>
@@ -20851,6 +20950,9 @@
           <value code="60">ZigZag Mode</value>
           <value code="61">ZigZag SaveWP</value>
           <value code="109">use Custom Controller</value>
+          <value code="310">Spot Sprayer Enable</value>
+          <value code="311">Spot Sprayer Option</value>
+          <value code="312">Spot Sprayer Pulse</value>
         </values>
       </param>
     </parameters>
@@ -21001,6 +21103,9 @@
           <value code="60">ZigZag Mode</value>
           <value code="61">ZigZag SaveWP</value>
           <value code="109">use Custom Controller</value>
+          <value code="310">Spot Sprayer Enable</value>
+          <value code="311">Spot Sprayer Option</value>
+          <value code="312">Spot Sprayer Pulse</value>
         </values>
       </param>
     </parameters>
@@ -30208,6 +30313,65 @@
         <field name="Units">%</field>
         <field name="UnitText">percent</field>
         <field name="Range">0 100</field>
+      </param>
+    </parameters>
+    <parameters name="SPOT_">
+      <param humanName="Spot Sprayer enable/disable" name="SPOT_ENABLE" documentation="Allows you to enable (1) or disable (0) the spot sprayer" user="Standard">
+        <values>
+          <value code="0">Disabled</value>
+          <value code="1">Enabled</value>
+        </values>
+      </param>
+      <param humanName="Flowrate low" name="SPOT_RATE_LOW" documentation="Low flowrate option for spot sprayer" user="Standard">
+        <field name="Units">ml/s</field>
+        <field name="UnitText">mllilitres per second</field>
+        <field name="Range">0 2000</field>
+      </param>
+      <param humanName="Flowrate mid" name="SPOT_RATE_MID" documentation="Medium flowrate option for spot sprayer" user="Standard">
+        <field name="Units">ml/s</field>
+        <field name="UnitText">mllilitres per second</field>
+        <field name="Range">0 2000</field>
+      </param>
+      <param humanName="Flowrate high" name="SPOT_RATE_HIGH" documentation="High flowrate option for spot sprayer" user="Standard">
+        <field name="Units">ml/s</field>
+        <field name="UnitText">mllilitres per second</field>
+        <field name="Range">0 2000</field>
+      </param>
+      <param humanName="Desired Pressure" name="SPOT_PRES" documentation="Pump target pressure" user="Standard">
+        <field name="Units">kpa</field>
+        <field name="UnitText">Kilopascals</field>
+        <field name="Range">0 1000</field>
+      </param>
+      <param humanName="Max Weight" name="SPOT_MAX_LOAD" documentation="Maxium useful load" user="Standard">
+        <field name="Units">kg</field>
+        <field name="UnitText">kilograms</field>
+        <field name="Range">0 127</field>
+      </param>
+      <param humanName="Volume low" name="SPOT_VOL_LOW" documentation="Low volume option for spot sprayer" user="Standard">
+        <field name="Units">ml</field>
+        <field name="UnitText">mllilitres</field>
+        <field name="Range">0 10000</field>
+      </param>
+      <param humanName="Volume mid" name="SPOT_VOL_MID" documentation="Medium volume option for spot sprayer" user="Standard">
+        <field name="Units">ml</field>
+        <field name="UnitText">mllilitres</field>
+        <field name="Range">0 10000</field>
+      </param>
+      <param humanName="Volume high" name="SPOT_VOL_HIGH" documentation="High volume option for spot sprayer" user="Standard">
+        <field name="Units">ml</field>
+        <field name="UnitText">mllilitres</field>
+        <field name="Range">0 10000</field>
+      </param>
+      <param humanName="Spot Sprayer mode" name="SPOT_MODE" documentation="Spot sprayer mode flowrate or volume based controls" user="Standard">
+        <values>
+          <value code="0">Flowrate</value>
+          <value code="1">Volume</value>
+        </values>
+      </param>
+      <param humanName="Pulse Volume" name="SPOT_PULSE" documentation="Volume the spot sprayer pulse outputs" user="Standard">
+        <field name="Units">ml</field>
+        <field name="UnitText">mllilitres</field>
+        <field name="Range">0 10000</field>
       </param>
     </parameters>
     <parameters name="SR0_">
