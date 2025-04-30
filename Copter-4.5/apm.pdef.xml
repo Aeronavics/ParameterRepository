@@ -11025,6 +11025,12 @@
           <value code="6">Auto DO_LAND_START or RTL</value>
         </values>
       </param>
+      <param humanName="Generator last service runtime" name="GEN_LAST_SERV" documentation="Generator runtime at last service" user="Advanced">
+        <field name="Range">0 20000</field>
+        <field name="Increment">1</field>
+        <field name="Units">h</field>
+        <field name="UnitText">hours</field>
+      </param>
     </parameters>
     <parameters name="GPS">
       <param humanName="1st GPS type" name="GPS_TYPE" documentation="GPS type of 1st GPS" user="Advanced">
