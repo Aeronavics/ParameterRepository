@@ -11031,6 +11031,12 @@
         <field name="Units">h</field>
         <field name="UnitText">hours</field>
       </param>
+      <param humanName="Generator Prearm Fuel Level" name="GEN_MIN_ARM_LVL" documentation="Fuel level to prearm fail at" user="Standard">
+        <field name="Range">0 100</field>
+        <field name="Increment">1</field>
+        <field name="Units">%</field>
+        <field name="UnitText">Percent</field>
+      </param>
     </parameters>
     <parameters name="GPS">
       <param humanName="1st GPS type" name="GPS_TYPE" documentation="GPS type of 1st GPS" user="Advanced">
