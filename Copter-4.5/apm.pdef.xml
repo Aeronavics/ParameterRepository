@@ -10969,19 +10969,19 @@
       <param humanName="Generator Options" name="GEN_OPTIONS" documentation="Bitmask of options for generators" user="Standard">
         <field name="Bitmask">0:Suppress Maintenance-Required Warnings</field>
       </param>
-      <param humanName="Generator low fuel level" name="GEN_LOW_PER" documentation="Fuel level to low failsafe at" user="Advanced">
+      <param humanName="Generator low fuel level" name="GEN_LOW_PER" documentation="Fuel level to low failsafe at" user="Standard">
         <field name="Range">0 100</field>
         <field name="Increment">1</field>
         <field name="Units">%</field>
         <field name="UnitText">Percent</field>
       </param>
-      <param humanName="Generator critical fuel level" name="GEN_CRIT_PER" documentation="Fuel level to Critical failsafe at" user="Advanced">
+      <param humanName="Generator critical fuel level" name="GEN_CRIT_PER" documentation="Fuel level to Critical failsafe at" user="Standard">
         <field name="Range">0 100</field>
         <field name="Increment">1</field>
         <field name="Units">%</field>
         <field name="UnitText">Percent</field>
       </param>
-      <param humanName="Generator low fuel action" name="GEN_LOW_FS" documentation="Action to take when low fuel level is reached" user="Advanced">
+      <param humanName="Generator low fuel action" name="GEN_LOW_FS" documentation="Action to take when low fuel level is reached" user="Standard">
         <values>
           <value code="0">None</value>
           <value code="1">Land</value>
@@ -10990,7 +10990,7 @@
           <value code="4">SmartRTL or Land</value>
         </values>
       </param>
-      <param humanName="Generator crit fuel action" name="GEN_CRIT_FS" documentation="Action to take when crit fuel level is reached" user="Advanced">
+      <param humanName="Generator crit fuel action" name="GEN_CRIT_FS" documentation="Action to take when crit fuel level is reached" user="Standard">
         <values>
           <value code="0">None</value>
           <value code="1">Land</value>
@@ -10999,7 +10999,7 @@
           <value code="4">SmartRTL or Land</value>
         </values>
       </param>
-      <param humanName="Generator stopped action" name="GEN_OFF_FS" documentation="Action to take when generator stops" user="Advanced">
+      <param humanName="Generator stopped action" name="GEN_OFF_FS" documentation="Action to take when generator stops" user="Standard">
         <values>
           <value code="0">None</value>
           <value code="1">Land</value>
@@ -11008,7 +11008,7 @@
           <value code="4">SmartRTL or Land</value>
         </values>
       </param>
-      <param humanName="Generator error action" name="GEN_ERROR_FS" documentation="Action to take when generator has an error" user="Advanced">
+      <param humanName="Generator error action" name="GEN_ERROR_FS" documentation="Action to take when generator has an error" user="Standard">
         <values>
           <value code="0">None</value>
           <value code="1">Land</value>
@@ -11016,6 +11016,18 @@
           <value code="3">SmartRTL or RTL</value>
           <value code="4">SmartRTL or Land</value>
         </values>
+      </param>
+      <param humanName="Generator last service runtime" name="GEN_LAST_SERV" documentation="Generator runtime at last service" user="Standard">
+        <field name="Range">0 20000</field>
+        <field name="Increment">1</field>
+        <field name="Units">h</field>
+        <field name="UnitText">hours</field>
+      </param>
+      <param humanName="Generator Prearm Fuel Level" name="GEN_MIN_ARM_LVL" documentation="Fuel level to prearm fail at" user="Standard">
+        <field name="Range">0 100</field>
+        <field name="Increment">1</field>
+        <field name="Units">%</field>
+        <field name="UnitText">Percent</field>
       </param>
     </parameters>
     <parameters name="GPS">
