@@ -10988,8 +10988,6 @@
           <value code="2">RTL</value>
           <value code="3">SmartRTL or RTL</value>
           <value code="4">SmartRTL or Land</value>
-          <value code="5">Terminate</value>
-          <value code="6">Auto DO_LAND_START or RTL</value>
         </values>
       </param>
       <param humanName="Generator crit fuel action" name="GEN_CRIT_FS" documentation="Action to take when crit fuel level is reached" user="Advanced">
@@ -10999,8 +10997,6 @@
           <value code="2">RTL</value>
           <value code="3">SmartRTL or RTL</value>
           <value code="4">SmartRTL or Land</value>
-          <value code="5">Terminate</value>
-          <value code="6">Auto DO_LAND_START or RTL</value>
         </values>
       </param>
       <param humanName="Generator stopped action" name="GEN_OFF_FS" documentation="Action to take when generator stops" user="Advanced">
@@ -11010,8 +11006,6 @@
           <value code="2">RTL</value>
           <value code="3">SmartRTL or RTL</value>
           <value code="4">SmartRTL or Land</value>
-          <value code="5">Terminate</value>
-          <value code="6">Auto DO_LAND_START or RTL</value>
         </values>
       </param>
       <param humanName="Generator error action" name="GEN_ERROR_FS" documentation="Action to take when generator has an error" user="Advanced">
@@ -11021,8 +11015,6 @@
           <value code="2">RTL</value>
           <value code="3">SmartRTL or RTL</value>
           <value code="4">SmartRTL or Land</value>
-          <value code="5">Terminate</value>
-          <value code="6">Auto DO_LAND_START or RTL</value>
         </values>
       </param>
     </parameters>
